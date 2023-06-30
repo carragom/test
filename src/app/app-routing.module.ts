@@ -4,11 +4,12 @@ import { NativeScriptRouterModule } from '@nativescript/angular'
 
 import { ItemsComponent } from './item/items.component'
 import { ItemDetailComponent } from './item/item-detail.component'
+import { CanExitGuard } from './app.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/items', pathMatch: 'full' },
   { path: 'items', component: ItemsComponent },
-  { path: 'item/:id', component: ItemDetailComponent },
+  { path: 'item/:id', component: ItemDetailComponent, canDeactivate: [CanExitGuard] },
 ]
 
 @NgModule({
